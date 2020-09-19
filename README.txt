@@ -11,6 +11,9 @@ GetArtsy button at the first time shows up Links the cat on
 the browser and clicking that button at the second time 
 illustrates an animation of the cat that is spesified in init.js file.
 
+- Clicking my name in the footer routes to my linkedIn account,
+and my student number routes to my github account.
+
 > export FLASK_APP=app.py
 
 Run command in the server:
