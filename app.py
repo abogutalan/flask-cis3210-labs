@@ -10,23 +10,35 @@ app = Flask(__name__, static_url_path='')
 def index(name=None):
     return render_template('index.html', name=name)
 
-@app.route('/login', methods=['GET', 'PUT', 'POST', 'DELETE'])
-def about():
-    if request.method == 'GET':
-        return 'GET request!!!'
-    elif request.method == 'PUT':
-        return 'PUT request!!!'
-    elif request.method == 'POST':
-        return 'POST request!!!'
-    elif request.method == 'DELETE':
-        return 'DELETE request!!!'
-    else:
-        return 'No Request!!!'
+# getting user information
+@app.route('/user', methods=['GET'])
+def getUser():
+    user = 'Abdullah'
+    password = 'Ogutalan'
+    return json.dumps({'status':'Get user','user':user,'pass':password})
 
+# adding a new user
+@app.route('/user', methods=['POST'])
+def addUser():
+    return 'Submit button below is being used instead'
+
+# updating user information  
+@app.route('/user', methods=['PUT'])
+def updateUser():
+    user =  request.form['username']
+    password = request.form['password']
+    return json.dumps({'status':'Updated user','user':user,'pass':password})
+
+# deleting user
+@app.route('/user', methods=['DELETE'])
+def deleteUser():
+    return json.dumps({'status':'Deleted user','user':'','pass':''})
+
+# adding a new user
 @app.route('/signUpUser', methods=['POST'])
 def signUpUser():
     user =  request.form['username']
     password = request.form['password']
-    return json.dumps({'status':'OK','user':user,'pass':password})
+    return json.dumps({'status':'Added user','user':user,'pass':password})
 
     

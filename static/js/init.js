@@ -14,7 +14,7 @@ $(document).ready(function () {
 
     console.log("get bttn clicked!");
     $.ajax({
-      url: "/login", type: 'get', success: function (result) {
+      url: "/user", type: 'get', success: function (result) {
         $("#result-text").html(result);
       }
     });
@@ -22,9 +22,12 @@ $(document).ready(function () {
 
   function put_method() {
 
-    console.log("put bttn clicked!");
     $.ajax({
-      url: "/login", type: 'put', success: function (result) {
+      url: "/user", 
+      type: 'put', 
+      data: $('form').serialize(),
+      success: function (result) {
+        console.log('Updated user credentials!')
         $("#result-text").html(result);
       }
     });
@@ -34,7 +37,9 @@ $(document).ready(function () {
 
     console.log("post bttn clicked!");
     $.ajax({
-      url: "/login", type: 'post', success: function (result) {
+      url: "/user", 
+      type: 'post', 
+      success: function (result) {
         $("#result-text").html(result);
       }
     });
@@ -42,9 +47,9 @@ $(document).ready(function () {
 
   function delete_method() {
 
-    console.log("delete bttn clicked!");
     $.ajax({
-      url: "/login", type: 'delete', success: function (result) {
+      url: "/user", type: 'delete', success: function (result) {
+        console.log('Deleted user credetials!')
         $("#result-text").html(result);
       }
     });
