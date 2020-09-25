@@ -1,25 +1,74 @@
 $(document).ready(function () {
 
-  console.log('cis3210');
+  console.log('name: Abdullah Ogutalan');
+  console.log('student number: 1109732');
 
-  // Load Links
-  clippy.load('Links', getArtsy);
 
-  //Replace with a Links animation
-  $('#alert-button').click(function () {
-    alert("Alert!");
-  });
+  document.getElementById("get-button").addEventListener("click", get_method);
+  document.getElementById("put-button").addEventListener("click", put_method);
+  document.getElementById("post-button").addEventListener("click", post_method);
+  document.getElementById("delete-button").addEventListener("click", delete_method);
 
-  
-  function getArtsy (agent) {
-    // Do anything with the loaded agent
-    $('#artsy-button').click(function () {
-  
-      agent.play('GetArtsy');
-      agent.moveTo(300, 300);
-      agent.show();
+
+  function get_method() {
+
+    console.log("get bttn clicked!");
+    $.ajax({
+      url: "/login", type: 'get', success: function (result) {
+        $("#result-text").html(result);
+      }
     });
   }
+
+  function put_method() {
+
+    console.log("put bttn clicked!");
+    $.ajax({
+      url: "/login", type: 'put', success: function (result) {
+        $("#result-text").html(result);
+      }
+    });
+  }
+
+  function post_method() {
+
+    console.log("post bttn clicked!");
+    $.ajax({
+      url: "/login", type: 'post', success: function (result) {
+        $("#result-text").html(result);
+      }
+    });
+  }
+
+  function delete_method() {
+
+    console.log("delete bttn clicked!");
+    $.ajax({
+      url: "/login", type: 'delete', success: function (result) {
+        $("#result-text").html(result);
+      }
+    });
+  }
+
+  $('#signup-form').submit(function (e) {
+    e.preventDefault();
+    var user = $('#inputUsername').val();
+		var pass = $('#inputPassword').val();
+    $.ajax({
+      url: '/signUpUser',
+			data: $('form').serialize(),
+      type: 'POST',
+      success: function (response) {
+        console.log(response);
+        $("#result-text").html(response);
+      },
+      error: function (error) {
+        console.log(error);
+      }
+    });
+  });
+
+
 
 });
 

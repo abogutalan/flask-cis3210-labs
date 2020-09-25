@@ -9,7 +9,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<link rel="shortcut icon" href="#">
-	<title>CIS*3210 Lab 2</title>
+	<title>CIS*3210 Lab 1</title>
 
 	<!-- Bootstrap core CSS -->
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -23,11 +23,9 @@
 
 	<!-- Custom styles for this template -->
 	<link href="/css/cover.css" rel="stylesheet">
-	<link href="/css/custom.css" rel="stylesheet">
-
-	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="/css/custom.css" rel="stylesheet">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
 
@@ -45,13 +43,13 @@
 			<div class="collapse navbar-collapse" id="navbarText">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active">
-						<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+						<a class="nav-link" href="/">Home</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="/about">About</a>
+						<a class="nav-link" href="about">About</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="/login">Log In</a>
+						<a class="nav-link" href="login">Log In</a>
 					</li>
 				</ul>
 				<span class="navbar-text">
@@ -60,48 +58,16 @@
 			</div>
 		</nav>
 	</div>
-
-	<div class="site-wrapper">
-
-		<div class="site-wrapper-inner">
-			<div class="cover-container">
-
-				<div class="inner cover">
-					<h1 class="cover-heading">CIS*3210 Lab 2</h1>
-
-					<p class="lead">Please click the buttons below!</p>
-
-					<a href="#" id="get-button" class="btn btn-lg btn-info">Get</a>
-					<a href="#" id="put-button" class="btn btn-lg btn-info">Put</a>
-					<a href="#" id="post-button" class="btn btn-lg btn-info">Post</a>
-					<a href="#" id="delete-button" class="btn btn-lg btn-info">Delete</a>
-					<br />
-					<br />
-					<br />
-					<form ref='signup-form' id='signup-form'>
-						<div class="form-group">
-							<label for="email">Email address:</label>
-							<input type="email" id="inputUsername" name="username" class="form-control" placeholder="Email address" required autofocus>
-						</div>
-						<div class="form-group">
-							<label for="pwd">Password:</label>
-							<input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>       
-						</div>
-						<div class="checkbox">
-							<label><input type="checkbox"> Remember me</label>
-						</div>
-						<button type="submit" class="btn btn-lg btn-primary btn-block">Submit</button>
-					</form>
-					<br />
-					<br />
-					<br />
-
-					<p id="result-text" class="lead">Result will show up here!</p>
-
-				</div>
-			</div>
-		</div>
-	</div>
+	
+	
+    <!-- <div>
+        <h5>Log In Page</h5>
+        {% if id %}
+        <h1>my student id : {{ id }}!</h1>
+        {% else %}
+        <h1>Hello, World!</h1>
+        {% endif %}
+    </div> -->
 
 	<!-- *** Include jQuery *** -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
