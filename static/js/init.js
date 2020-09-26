@@ -22,6 +22,7 @@ $(document).ready(function () {
 
   function put_method() {
 
+    console.log("put bttn clicked!");
     $.ajax({
       url: "/user", 
       type: 'put', 
@@ -47,6 +48,7 @@ $(document).ready(function () {
 
   function delete_method() {
 
+    console.log("delete bttn clicked!");
     $.ajax({
       url: "/user", type: 'delete', success: function (result) {
         console.log('Deleted user credetials!')
