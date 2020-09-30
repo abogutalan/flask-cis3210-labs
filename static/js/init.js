@@ -50,7 +50,7 @@ $(document).ready(function () {
 
     console.log("delete bttn clicked!");
     $.ajax({
-      url: "/user", type: 'delete', success: function (result) {
+      url: "/user", data: $('form').serialize(), type: 'delete', success: function (result) {
         console.log('Deleted user credetials!')
         $("#result-text").html(result);
       }

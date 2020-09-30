@@ -13,14 +13,12 @@ then prints them in a paragraph html tag.
 
 POST button: Submit button below is being used instead
 
-SUBMIT button: Creates a new user by the value of email and
-password inputs of sign up form. Value of email has to be any
-kind of email, admin can not punch something in like "newuser"
-but instead it must be like newuser@gmail.com.
+SUBMIT button: Creates a new user by the values of username and
+password inputs of sign up form. Input boxes have to be filled in.
 
 PUT button: Updates the information of the user by using the
-values of email and password input, so after creating a new 
-user, you can change email and password input and click PUT
+values of username and password input, so after creating a new 
+user, you can change username and password input and click PUT
 button above then see the updated information of the user on
 the screen.
 
@@ -76,4 +74,8 @@ https://medium.com/duomly-blockchain-online-courses/how-to-create-a-simple-rest-
 
 MySQL Python tutorial:
 http://zetcode.com/db/mysqlpython/
+
+Using the Python DB API, don't do this:
+https://bobby-tables.com/python.html
+
 
