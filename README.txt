@@ -74,5 +74,6 @@ https://medium.com/@abeeralshubat/restful-web-services-using-flask-d8b7738b12e8
 How to create a simple REST API with Python and Flask:
 https://medium.com/duomly-blockchain-online-courses/how-to-create-a-simple-rest-api-with-python-and-flask-in-5-minutes-94bb88f74a23
 
-
+MySQL Python tutorial:
+http://zetcode.com/db/mysqlpython/
 
