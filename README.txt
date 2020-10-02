@@ -1,9 +1,4 @@
 
-LAB 3:
-so we're basically letting them 'login' by checking 
-if password matched what's in the db, adding a user, 
-deleting a user and changing a user's password?
-
 Abdullah Ogutalan
 1109732  👨‍💻
  
