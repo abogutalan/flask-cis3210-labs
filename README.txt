@@ -1,32 +1,30 @@
 
 Abdullah Ogutalan
-1109732
+1109732  👨‍💻
+ 
 
-How it works?
+How it works? 💻 
 - Once you run the project by following the steps below and 
 you have a firefox open with the project, you will see four 
-buttons e.g. GET, PUT, POST, DELETE buttons and a submit form.
+buttons e.g. GET, Submit, POST, DELETE buttons.
 All of these buttons send AJAX request to python FLASK.
 
-GET button: gets the username and password of a default user,
+🤜  GET button: gets the password of the username from database.
+You only need to punch a username in and click submit button.
 then prints them in a paragraph html tag.
 
-POST button: Submit button below is being used instead
+🤜  SUBMIT button: Creates a new user in the database by the values 
+of username and password inputs of sign up form. 
+Input boxes have to be filled in.
 
-SUBMIT button: Creates a new user by the values of username and
-password inputs of sign up form. Input boxes have to be filled in.
+🤜 PUT button: Updates the password of the user in database, 
+so after creating a new user, you can change password input of 
+the user  and click PUT button above then see the updated password 
+of the user on the screen.
 
-PUT button: Updates the information of the user by using the
-values of username and password input, so after creating a new 
-user, you can change username and password input and click PUT
-button above then see the updated information of the user on
-the screen.
+🤜 DELETE button: Deletes user in database by username.
 
-DELETE button: In order to simulate deleting information of
-the user i assigned empty string to username and password
-variables of the user, then print the result on the screen .
-
-Note: There is no function of navigation bar at the top and 
+🥊  Note: There is no function of navigation bar at the top and 
 Remember me check box yet.
 Furthermore, you may see most of the actions on firefox console.
 
@@ -79,3 +77,6 @@ Using the Python DB API, don't do this:
 https://bobby-tables.com/python.html
 
 
+Feerass Ellid
+3:08 PM
+Why can't we hard code the url: cis3210.socs.uoguelph.ca:<portnumber> in our ajax calls?
