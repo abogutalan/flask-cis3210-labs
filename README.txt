@@ -75,8 +75,3 @@ http://zetcode.com/db/mysqlpython/
 
 Using the Python DB API, don't do this:
 https://bobby-tables.com/python.html
-
-
-Feerass Ellid
-3:08 PM
-Why can't we hard code the url: cis3210.socs.uoguelph.ca:<portnumber> in our ajax calls?
