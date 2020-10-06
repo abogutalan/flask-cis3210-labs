@@ -37,7 +37,7 @@ MY NOTES:
 
 > export FLASK_APP=app.py
 
-Run command in the server:
+Run command in the school server:
 > flask run --host=0.0.0.0 --port=19732
 
 Run command locally:
