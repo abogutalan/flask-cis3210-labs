@@ -27,16 +27,16 @@ def index():
     if 'username' in session:
         # return 'Logged in as %s' % escape(session['username'])
         if request.method == 'POST':
-            name=escape(session['username'])
+            # remove the username from the session if it's there
             session.pop('username', None)
-            return render_template('index.html', message='Logged out as %s' % name)
-        return '''
+            return redirect(url_for('index')) 
+        return 'Welcome %s' % escape(session['username']) + '''
         <form method="post">
-            <h3>Please click the button below to log out</h3>
+            <h3>Please click the button below to log out </h3>
             <p><input type=submit value=Logout>
         </form>
-    '''
-    return render_template('index.html', username="%s" % 'abogutalan')
+        '''
+    return render_template('index.html')
 
 # getting user information
 @app.route('/user', methods=['GET'])
@@ -71,20 +71,25 @@ def deleteUser():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
+        #getting data by name
+        user =  request.form['username']
+        password = request.form['password']
+        db_create_user(user, password)
+        # return json.dumps({'status':'Added user','user':user,'password':password})
         session['username'] = request.form['username']
-        return redirect(url_for('index'))
-    return '''
-        <form method="post">
-            <p><input type=text name=username>
-            <p><input type=submit value=Login>
-        </form>
-    '''
+        return redirect(url_for('index', username="%s" % 'abogutalan'))
+    # return '''
+    #     <form method="post">
+    #         <p><input type=text name=username>
+    #         <p><input type=submit value=Login>
+    #     </form>
+    # '''
 
-@app.route('/logout')
-def logout():
-    # remove the username from the session if it's there
-    session.pop('username', None)
-    return redirect(url_for('index'))
+# @app.route('/logout')
+# def logout():
+#     # remove the username from the session if it's there
+#     session.pop('username', None)
+#     return redirect(url_for('index'))
 
 # *** helper functions ***
 
