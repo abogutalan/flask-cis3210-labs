@@ -67,7 +67,7 @@ $(document).ready(function () {
     var user = $('#inputUsername').val();
 		var pass = $('#inputPassword').val();
     $.ajax({
-      url: '/login',
+      url: '/user',
 			data: $('form').serialize(),
       type: 'POST',
       success: function (response) {
