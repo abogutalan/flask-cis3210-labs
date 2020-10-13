@@ -18,14 +18,10 @@ db=MySQLdb.connect(
         db="aogutala" )
 
 
-    
-# @app.route('/')
-# def index(name=None):
-#     return render_template('index.html', name=name)
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if 'username' in session:
-        # return 'Logged in as %s' % escape(session['username'])
         if request.method == 'POST':
             # remove the username from the session if it's there
             session.pop('username', None)
@@ -38,9 +34,10 @@ def index():
         '''
     return render_template('index.html')
 
-# getting user information
+
 @app.route('/user', methods=['GET', 'PUT', 'POST', 'DELETE'])
 def user():
+    # getting user information
     if request.method == 'GET':
         user =  request.args['username']
         return db_get_user(user)
@@ -52,17 +49,17 @@ def user():
         return json.dumps({'status':'Updated user','user':user,'password':password})
     # adding a new user
     elif request.method == 'POST':
-        #getting data by name
         user =  request.form['username']
         password = request.form['password']
         db_create_user(user, password)
         session['username'] = request.form['username']
-        return redirect(url_for('index', username="%s" % 'abogutalan'))
+        return redirect(url_for('index', username="%s" % user))
     # deleting user
     elif request.method == 'DELETE':
         user =  request.form['username']
-        session.pop('user', None)
         db_delete_user(user)
+        session.pop('username', None)
+        redirect(url_for('index'))
         return json.dumps({'status':'Deleted','Deleted user':user})
     else:
         return "No request!"

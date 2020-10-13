@@ -13,16 +13,24 @@ All of these buttons send AJAX request to python FLASK.
 You only need to punch a username in and click submit button.
 then prints them in a paragraph html tag.
 
-🤜  SUBMIT button: Creates a new user in the database by the values 
+🤜  SUBMIT(POST) button: Creates a new user in the database by the values 
 of username and password inputs of sign up form. 
 Input boxes have to be filled in.
+User is logged in if it is already in the database. If not, the program
+creates the user account in the database and log in.
+Stores the username in a session variable.
 
 🤜 PUT button: Updates the password of the user in database, 
 so after creating a new user, you can change password input of 
 the user  and click PUT button above then see the updated password 
 of the user on the screen.
 
-🤜 DELETE button: Deletes user in database by username.
+🤜 DELETE button: Deletes the user in database by username and 
+pops it out from cookies.
+
+🤜 logout button: It pops up on the page once the user logs in or
+runs the program on a new page when the user is logged in.
+It clears the session when clicked.
 
 🥊  Note: There is no function of navigation bar at the top and 
 Remember me check box yet.
