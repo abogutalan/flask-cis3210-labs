@@ -10,7 +10,7 @@ buttons e.g. GET, Submit, POST, DELETE buttons.
 All of these buttons send AJAX request to python FLASK.
 
 🤜  GET button: gets the password of the username from database.
-You only need to punch a username in and click submit button.
+You only need to punch a username in and click GET button.
 then prints them in a paragraph html tag.
 
 🤜  SUBMIT(POST) button: Creates a new user in the database by the values 
