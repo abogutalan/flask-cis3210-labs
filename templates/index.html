@@ -58,14 +58,18 @@
 		</nav>
 	</div>
 
-	<!-- <div>
+	<div>
         <h5>Log Info</h5>
-        {% if username %}
-        <h1>Welocme {{ username }}!</h1>
+        {% if 'username' in session %}
+		<h1>Welocme {{ session['username'] }}!</h1>
+		<form method="post">
+            <h3>Please click the button below to log out </h3>
+            <p><input type=submit value=Logout>
+        </form>
         {% else %}
         <h1>Hello, World!</h1>
         {% endif %}
-    </div> -->
+    </div>
 
 	<div class="site-wrapper">
 
@@ -73,7 +77,9 @@
 			<div class="cover-container">
 
 				<div class="inner cover">
-					<h1 class="cover-heading">CIS*3210 Lab 2</h1>
+					{% if 'username' not in session %}
+
+					<h1 class="cover-heading">CIS*3210 Lab</h1>
 
 					<p class="lead">Please click the buttons below!</p>
 
@@ -101,7 +107,7 @@
 						</div>
 						<button type="submit" class="btn btn-lg btn-primary">Submit</button>
 					</form>
-					
+					{% endif %}
 				</div>
 			</div>
 		</div>

@@ -63,6 +63,8 @@ Seeing the processes:
 Killing a process:
 > kill -9 PID
 
+jQuery library should be before bootstrap library
+
 How to Setup and Use Bootstrap (Step-by-Step) :
 https://websitesetup.org/bootstrap-tutorial-for-beginners/
 

@@ -26,12 +26,6 @@ def index():
             # remove the username from the session if it's there
             session.pop('username', None)
             return redirect(url_for('index')) 
-        return 'Welcome %s' % escape(session['username']) + '''
-        <form method="post">
-            <h3>Please click the button below to log out </h3>
-            <p><input type=submit value=Logout>
-        </form>
-        '''
     return render_template('index.html')
 
 
@@ -53,7 +47,12 @@ def user():
         password = request.form['password']
         db_create_user(user, password)
         session['username'] = request.form['username']
-        return redirect(url_for('index', username="%s" % user))
+        return 'Welcome %s' % escape(session['username']) + '''
+        <form method="post">
+            <h3>Please click the button below to log out </h3>
+            <p><input type=submit value=Logout>
+        </form>
+        '''
     # deleting user
     elif request.method == 'DELETE':
         user =  request.form['username']
