@@ -5,11 +5,16 @@ import MySQLdb
 import MySQLdb.cursors
 from markupsafe import escape
 import os
+# from flickr import get_urls
+
 app = Flask(__name__, static_url_path='')
 #app.debug = True
 
 # Seting the secret key to some random bytes.
 app.secret_key = os.urandom(16) 
+
+# all_species = ['blue jay', 'northern cardinal', 'american goldfinch']
+# images_per_species = 10
 
 db=MySQLdb.connect(
         host="dursley.socs.uoguelph.ca",
@@ -28,6 +33,13 @@ def index():
             return redirect(url_for('index')) 
     return render_template('index.html')
 
+# getting image urls with using flaskr api
+# @app.route('/images', methods=['GET', 'PUT'])
+# def download():
+#     for species in all_species:
+#         # print('Getting urls for', species)
+#         urls = get_urls(species, images_per_species)
+#         print(urls)
 
 @app.route('/user', methods=['GET', 'PUT', 'POST', 'DELETE'])
 def user():

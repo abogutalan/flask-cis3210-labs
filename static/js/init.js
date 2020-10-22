@@ -20,17 +20,56 @@ $(document).ready(function () {
   // Note that the placeholder syntax depends on the database you are using.")
   // console.log('citation: https://bobby-tables.com/python.html')
 
-  document.getElementById("get-button").addEventListener("click", get_method);
-  document.getElementById("put-button").addEventListener("click", put_method);
-  document.getElementById("delete-button").addEventListener("click", delete_method);
+  // document.getElementById("get-button").addEventListener("click", get_method);
+  // document.getElementById("put-button").addEventListener("click", put_method);
+  // document.getElementById("delete-button").addEventListener("click", delete_method);
+  document.getElementById("show-button").addEventListener("click", show_method);
 
+  function show_method() {
+    // https://codeburst.io/multiple-ways-of-implementing-flickr-public-api-in-jquery-and-javascript-dbaf0f35bbef
+    console.log("get bttn clicked!");
+    var flickerAPI = "https://api.flickr.com/services/feeds/photos_public.gne?format=json&tags=" + $("#search").val();
+    $.ajax({
+      url: flickerAPI,
+      dataType: "jsonp", // jsonp
+      jsonpCallback: 'jsonFlickrFeed', // add this property
+      success: function (result, status, xhr) {
+        document.getElementById("outputDiv").innerHTML = "";
+        $.each(result.items, function (i, item) {
+          
+          $("<img>").attr("src", item.media.m).appendTo("#outputDiv");
+          if (i === 3) {
+            return false;
+          }
+        });
+        $('#outputDiv').each(function() {
+          if (!$(this).find('img').length) {
+              // there is an image in this div, do something...
+              console.log("img does not exist!")
+              document.getElementById("outputDiv").innerHTML = "img does not exist!";
+          }
+      });
+      },
+      error: function (xhr, status, error) {
+        console.log(xhr)
+        $("#outputDiv").html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+      }
+    });
+    // $.ajax({
+    //   url: "/images", 
+    //   data: 'https://live.staticflickr.com/689/22847153945_b769a2b78f_o.jpg', 
+    //   type: 'get', success: function (result) {
+    //     $("#result-text").html(result);
+    //   }
+    // });
+  }
 
   function get_method() {
 
     console.log("get bttn clicked!");
     $.ajax({
-      url: "/user", 
-      data: $('form').serialize(), 
+      url: "/user",
+      data: $('form').serialize(),
       type: 'get', success: function (result) {
         $("#result-text").html(result);
       }
@@ -41,8 +80,8 @@ $(document).ready(function () {
 
     console.log("put bttn clicked!");
     $.ajax({
-      url: "/user", 
-      type: 'put', 
+      url: "/user",
+      type: 'put',
       data: $('form').serialize(),
       success: function (result) {
         console.log('Updated user credentials!')
@@ -65,16 +104,16 @@ $(document).ready(function () {
   $('#signup-form').submit(function (e) {
     e.preventDefault();
     var user = $('#inputUsername').val();
-		var pass = $('#inputPassword').val();
+    var pass = $('#inputPassword').val();
     $.ajax({
       url: '/user',
-			data: $('form').serialize(),
+      data: $('form').serialize(),
       type: 'POST',
       success: function (response) {
         console.log(response);
         location.reload();
         $("#result-text").html(response);
-        
+
       },
       error: function (error) {
         console.log(error);
