@@ -1,7 +1,19 @@
 
 Abdullah Ogutalan
 1109732  👨‍💻
+
+LAB 6:
+- I used flickr api for this lab. Once you run the project,
+you will see an input box and a SHOW IMAGE button. If you click the
+button it shows random images from the Flickr. If you fill in the
+input box, the program filters the images accordingly and depicts them.
+The images are shown up to 4. If no images are found when searched,
+the program prompts a message on the screen.
+
+Ex input: asdasdsafda ~ img does not exist!
  
+
+PREVIOUS LABS:
 
 How it works? 💻 
 - Once you run the project by following the steps below and 
