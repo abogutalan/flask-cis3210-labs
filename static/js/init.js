@@ -20,9 +20,9 @@ $(document).ready(function () {
   // Note that the placeholder syntax depends on the database you are using.")
   // console.log('citation: https://bobby-tables.com/python.html')
 
-  // document.getElementById("get-button").addEventListener("click", get_method);
-  // document.getElementById("put-button").addEventListener("click", put_method);
-  // document.getElementById("delete-button").addEventListener("click", delete_method);
+  document.getElementById("get-button").addEventListener("click", get_method);
+  document.getElementById("put-button").addEventListener("click", put_method);
+  document.getElementById("delete-button").addEventListener("click", delete_method);
   document.getElementById("show-button").addEventListener("click", show_method);
 
   function show_method() {

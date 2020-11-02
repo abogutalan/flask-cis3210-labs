@@ -2,6 +2,37 @@
 Abdullah Ogutalan
 1109732  👨‍💻
 
+LAB 7:
+- Vulnerability 1: Data tampering via path traversal
+To EXPLOIT, create a new user named ..
+To FIX, you should escape dangerous characters in the username 
+(replacing them with safe characters) before using it. 
+It was earlier suggested that we should restrict the characters 
+allowed in a username, but it probably didn't occur to you 
+that "." was a dangerous character. It's worth noting that 
+there's a vulnerability unique to Windows servers with this 
+implementation. On Windows, filenames are not case sensitive 
+but Gruyere usernames are. So one user can attack another user's 
+files by creating a similar username that differs only in case, 
+e.g., BRIE instead of brie. So we need to not just escape unsafe 
+characters but convert the username to a canonical form that is 
+different for different usernames.
+SOLUTION: If the username includes any "." characters, the program
+replaces it with " " so that there will be no more vulnerability.
+
+- Vulnerability 2: Information disclosure #1
+To EXPLOIT, exposing the users' passwords
+To FIX, Passwords should never be stored in cleartext. Instead, 
+you should use password hashing. The idea is that to authenticate 
+a user, you don't need to know their password, only be convinced 
+that the user knows it. When the user sets their password, you store 
+only a cryptographic hash of the password and a salt value. When the 
+user re-enters their password later, you recompute the hash and if it 
+matches you conclude the password is correct. If an attacker obtains 
+the hash value, it's very difficult for them to reverse that to find 
+the original password.
+SOLUTION:
+
 LAB 6:
 - I used flickr api for this lab. Once you run the project,
 you will see an input box and a SHOW IMAGE button. If you click the

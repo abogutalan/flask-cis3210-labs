@@ -5,6 +5,7 @@ import MySQLdb
 import MySQLdb.cursors
 from markupsafe import escape
 import os
+import hashlib
 
 app = Flask(__name__, static_url_path='')
 #app.debug = True
@@ -34,17 +35,23 @@ def user():
     # getting user information
     if request.method == 'GET':
         user =  request.args['username']
+        user = user.replace("."," ")
         return db_get_user(user)
     # updating user information  
     elif request.method == 'PUT':
         user =  request.form['username']
+        user = user.replace("."," ")
         password = request.form['password']
+        password = obscurePassword(password)
         db_update_user(user, password)
         return json.dumps({'status':'Updated user','user':user,'password':password})
     # adding a new user
     elif request.method == 'POST':
         user =  request.form['username']
+        # avoiding username vulnerabilities
+        user = user.replace("."," ")
         password = request.form['password']
+        password = obscurePassword(password)
         db_create_user(user, password)
         session['username'] = request.form['username']
         return 'Welcome %s' % escape(session['username']) + '''
@@ -56,6 +63,7 @@ def user():
     # deleting user
     elif request.method == 'DELETE':
         user =  request.form['username']
+        user = user.replace("."," ")
         db_delete_user(user)
         session.pop('username', None)
         redirect(url_for('index'))
@@ -104,4 +112,10 @@ def db_get_user(user):
         password = cur.fetchone()
     return json.dumps({'Password ':password})
 
+def obscurePassword(password):
+    salt = "5gz"
+    db_password = password + salt
+    h = hashlib.md5(db_password.encode())
+    obscuredPswrd = h.hexdigest()
+    return obscuredPswrd
 
