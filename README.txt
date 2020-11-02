@@ -31,7 +31,22 @@ user re-enters their password later, you recompute the hash and if it
 matches you conclude the password is correct. If an attacker obtains 
 the hash value, it's very difficult for them to reverse that to find 
 the original password.
-SOLUTION:
+SOLUTION: Obscured password by generating unique hashes and salting.
+
+- Vulnerability 3: SQL Injection
+Just as XSS vulnerabilities allow attackers to inject script into web pages, 
+SQL injection vulnerabilities allow attackers to inject arbitrary scripts 
+into SQL queries. When a SQL query is executed it can either read or write 
+data, so an attacker can use SQL injection to read your entire database as 
+well as overwrite it, as described in the classic Bobby Tables XKCD comic. 
+SOLUTION: Avoided building queries by string concatenation.
+
+- Vulnerability 4: Stored XSS
+To EXPLOIT, enter <a onmouseover="alert(1)" href="#">read this!</a> 
+as a username and password then get password from database.
+SOLUTION: Serializing the form in every Ajax calls and using
+json.dump when a string value is returned. The program avoids 
+prompting an alert message and shows only the returning string.
 
 LAB 6:
 - I used flickr api for this lab. Once you run the project,
