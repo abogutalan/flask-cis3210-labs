@@ -20,9 +20,9 @@ $(document).ready(function () {
   // Note that the placeholder syntax depends on the database you are using.")
   // console.log('citation: https://bobby-tables.com/python.html')
 
-  document.getElementById("get-button").addEventListener("click", get_method);
-  document.getElementById("put-button").addEventListener("click", put_method);
-  document.getElementById("delete-button").addEventListener("click", delete_method);
+  // document.getElementById("get-button").addEventListener("click", get_method);
+  // document.getElementById("put-button").addEventListener("click", put_method);
+  // document.getElementById("delete-button").addEventListener("click", delete_method);
   document.getElementById("show-button").addEventListener("click", show_method);
 
   function show_method() {
@@ -35,10 +35,22 @@ $(document).ready(function () {
       jsonpCallback: 'jsonFlickrFeed', // add this property
       success: function (result, status, xhr) {
         document.getElementById("outputDiv").innerHTML = "";
+        let quantity = $('#quantity').val();
+        let outputDiv = document.getElementById('outputDiv');
+        
         $.each(result.items, function (i, item) {
           
-          $("<img>").attr("src", item.media.m).appendTo("#outputDiv");
-          if (i === 3) {
+          // $("<img>").attr("src", item.media.m).appendTo("#outputDiv");
+          let a = document.createElement('a');
+          let img = document.createElement('img');
+          img.src = item.media.m;
+          a.appendChild(img);                    
+          a.href = item.media.m;
+          img.height = 100;
+          img.width = 100;
+          outputDiv.appendChild(a);
+
+          if (i == quantity-1) {
             return false;
           }
         });

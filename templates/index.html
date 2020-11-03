@@ -58,7 +58,7 @@
 		</nav>
 	</div>
 
-	<div>
+	<!-- <div>
         <h5>Log Info</h5>
         {% if 'username' in session %}
 		<h1>Welocme {{ session['username'] }}!</h1>
@@ -69,7 +69,7 @@
         {% else %}
         <h1>Hello, World!</h1>
         {% endif %}
-    </div>
+    </div> -->
 
 	<div class="site-wrapper">
 
@@ -84,19 +84,19 @@
 					<p class="lead">Please click the buttons below!</p>
 
 					
-					<a href="#" id="get-button" class="btn btn-lg btn-info">Get</a>
+					<!-- <a href="#" id="get-button" class="btn btn-lg btn-info">Get</a>
 					<a href="#" id="put-button" class="btn btn-lg btn-info">Put</a>
-					<a href="#" id="delete-button" class="btn btn-lg btn-info">Delete</a>
+					<a href="#" id="delete-button" class="btn btn-lg btn-info">Delete</a> -->
 					<br />
-					<input id="search" type="text" placeholder="search text" />
-					<a href="#" id="show-button" class="btn btn-lg btn-info">Show Images</a>
-					<br />
-					<br />
-					<div id="outputDiv" class="lead"></div>
-					<br />
-					<br />
+					<label for="type">Search images by tag (cat, dog, flower, etc.)</label>
+					<input id="search" type="text" placeholder="search tag" /><br />
+					<label for="quantity">How many pictures? (between 1 and 100):</label>
+					<input type="number" id="quantity" name="quantity" value="1" min="1" max="10"><br />
+					<a href="#" id="show-button" class="btn btn-lg btn-info">Show Images</a><br /><br />
+	
+					<div id="outputDiv" class="lead"></div><br /><br />
 
-					<p id="result-text" class="lead">Result will show up here!</p>
+					<!-- <p id="result-text" class="lead">Result will show up here!</p>
 
 					<br />
 					<form ref='signup-form' id='signup-form'>
@@ -112,7 +112,7 @@
 							<label><input type="checkbox"> Remember me</label>
 						</div>
 						<button type="submit" class="btn btn-lg btn-primary">Submit</button>
-					</form>
+					</form> -->
 					{% endif %}
 				</div>
 			</div>
