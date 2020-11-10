@@ -39,13 +39,17 @@ $(document).ready(function () {
         let outputDiv = document.getElementById('outputDiv');
         
         $.each(result.items, function (i, item) {
-          
+          console.log('item')
+          console.log(item)
           // $("<img>").attr("src", item.media.m).appendTo("#outputDiv");
           let a = document.createElement('a');
           let img = document.createElement('img');
           img.src = item.media.m;
+          
           a.appendChild(img);                    
           a.href = item.media.m;
+          a.download = item.media.m;
+
           img.height = 100;
           img.width = 100;
           outputDiv.appendChild(a);
@@ -75,6 +79,11 @@ $(document).ready(function () {
     //   }
     // });
   }
+
+  $('#outputDiv').on('click', 'img', function (e) {
+    e.stopPropagation();
+    $(this).remove();
+});
 
   function get_method() {
 
