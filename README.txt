@@ -2,6 +2,11 @@
 Abdullah Ogutalan
 1109732  👨‍💻
 
+LAB 9:
+- After doing the steps of Lab 8 explained below,
+clicking the image will show it in full screen and
+the program deletes the selected image.
+
 LAB 8:
 - Once you run the program, you will see two input
 boxes and show images button. Please enter a tag to
