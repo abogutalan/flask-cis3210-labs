@@ -1,4 +1,9 @@
 body {
+    background-image: url("../img/backgroun_image.jpg");
     background-color: #191970;
+    height: 100%; /* You must set a specified height */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
 }
 
