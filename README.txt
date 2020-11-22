@@ -2,10 +2,9 @@
 Abdullah Ogutalan
 1109732  👨‍💻
 
-LAB 9:
-- After doing the steps of Lab 8 explained below,
-clicking the image will show it in full screen and
-the program deletes the selected image.
+LAB 10: (See the steps of Lab 8 first below to run the program)
+- Displays the details when a mouse hovers over the image in all browsers
+by obtaining all those information from Flickr API.
 
 LAB 8:
 - Once you run the program, you will see two input
@@ -13,7 +12,12 @@ boxes and show images button. Please enter a tag to
 first input box to filter images, and enter an amount
 to second input box to specify how many images you want
 to see. Then, click the show images button and you
-will see images below.
+will see the images.
+
+LAB 9:
+- After doing the steps of Lab 8 explained below,
+clicking the image will show it in full screen and
+the program deletes the selected image.
 
 LAB 7:
 - Vulnerability 1: Data tampering via path traversal
