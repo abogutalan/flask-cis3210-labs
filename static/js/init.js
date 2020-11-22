@@ -46,13 +46,19 @@ $(document).ready(function () {
           let a = document.createElement('a');
           let img = document.createElement('img');
           img.src = item.media.m;
-          
+          img.title = "Author: " + item.author + 
+            "\nAuthor id: " + item.author_id + 
+            "\nPublished: " + item.published + 
+            "\nTaken Date: " + item.date_taken +
+            "\nLink: " + item.link;
+
           a.appendChild(img);                    
           a.href = item.media.m;
           a.download = item.media.m;
 
           img.height = 100;
           img.width = 100;
+
           outputDiv.appendChild(a);
 
           if (i == quantity-1) {
