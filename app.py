@@ -15,8 +15,8 @@ app.secret_key = os.urandom(16)
 
 db=MySQLdb.connect(
         host="dursley.socs.uoguelph.ca",
-        user="aogutala",
-        passwd="1109732",
+        user="username",
+        passwd="no",
         db="aogutala" )
 
 
